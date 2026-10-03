@@ -68,6 +68,10 @@ RUN mkdir -p /opt/terrame \
 
 # --- LuccME (pinned copy in ./luccme, see luccme/UPSTREAM.md) --------------------
 COPY luccme/ /opt/terrame/bin/packages/luccme/
+
+# --- GPM (pinned copy in ./gpm) --------------------------------------------------
+COPY gpm/ /opt/terrame/bin/packages/gpm/
+
 # TerraME tests write logs and outputs inside the package folder
 RUN chmod -R a+rwX /opt/terrame/bin/packages
 
