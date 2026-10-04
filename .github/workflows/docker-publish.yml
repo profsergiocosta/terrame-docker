@@ -78,6 +78,10 @@ jobs:
             "$IMAGE:test" luccme_sample.lua | tee out.txt
           grep -q "LuccME simulation finished successfully!" out.txt
 
+      - name: Smoke test - GNU time
+        run: |
+          docker run --rm --entrypoint /usr/bin/time "$IMAGE:test" -f '%e,%U,%S,%M' true
+
       - name: Log in to Docker Hub
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v3

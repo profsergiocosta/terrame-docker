@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### Added
+- GNU `time` (`/usr/bin/time`) in the image, so wall-clock, CPU time and peak memory of a TerraME run can be
+  measured from inside the container (`/usr/bin/time -f '%e,%U,%S,%M' terrame ...`). The TerraME binary,
+  LuccME and gpm are unchanged. Used by the timing measurements in
+  https://github.com/LambdaGeo/luccme-goldens.
+
 ## [0.4.1] -- 2026-10-01
 
 ### Added

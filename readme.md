@@ -22,6 +22,7 @@ runs the same way on any machine with Docker.
 | Qt        | 5.9.5 |
 | LuccME    | 3.1 (commit `6244dd4`) |
 | Packages  | `base`, `gis`, `luadoc`, `luccme` |
+| Tools     | GNU `time` (`/usr/bin/time`), to measure time and peak memory |
 
 ---
 
@@ -231,6 +232,23 @@ The 21 functional tests (`lab01` to `lab21`) complete in about 1.5 minutes. On a
   ```
 - **Permission errors in `/work`:** Files created by the container in mounted volumes may be owned by UID 1000. If your host user has a different UID/GID, pass `--user "$(id -u):$(id -g)"` to `docker run`.
 - **The container hangs with no output:** Do not override the image entrypoint with custom wrappers unless necessary; `dumb-init` is required because `xvfb-run` hangs when run directly as PID 1.
+
+---
+
+## Measuring time and memory
+
+`/usr/bin/time` is in the image. Measure around the `terrame` command only, so container and Xvfb
+start-up are not counted:
+
+```bash
+docker run --rm --cpus=1 --memory=4g --user "$(id -u):$(id -g)" -v "$PWD/models":/work \
+  profsergiocosta/terrame-luccme bash -c \
+  "xvfb-run -a /usr/bin/time -f '%e s wall, %U s user, %S s sys, %M KB peak' -o /work/.time \
+   /opt/terrame/bin/terrame -autoclose hello_world.lua; cat /work/.time"
+```
+
+Timings vary between runs and machines: report the median of several repetitions together with the
+image digest and the host description (see `luccme-goldens`, `make timing`).
 
 ---
 
