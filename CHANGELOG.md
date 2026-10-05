@@ -1,6 +1,8 @@
 # Changelog
 
-## [Unreleased]
+## [Unreleased] 
+
+## [0.4.2] -- 2026-10-05
 
 ### Added
 - GNU `time` (`/usr/bin/time`) in the image, so wall-clock, CPU time and peak memory of a TerraME run can be
