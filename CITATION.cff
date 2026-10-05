@@ -12,6 +12,9 @@ authors:
     affiliation: "Universidade Federal do Maranhão (UFMA), LambdaGeo Research Group"
 version: 0.4.1
 date-released: 2026-10-01
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23160783
 license: MIT
 repository-code: "https://github.com/profsergiocosta/terrame-docker"
 url: "https://hub.docker.com/r/profsergiocosta/terrame-luccme"

@@ -1,5 +1,7 @@
 # TerraME + LuccME in Docker
 
+[![DOI](https://zenodo.org/badge/1176099458.svg)](https://doi.org/10.5281/zenodo.23160783)
+
 A ready-to-run Docker image of **[TerraME](https://github.com/TerraME/terrame) 2.0.1** with the
 **[LuccME](https://github.com/TerraME/luccme)** land use change modeling package installed.
 
